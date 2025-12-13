@@ -1,1 +1,60 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
 
+#define WIDTH 40
+#define HEIGHT 20
+
+void clearScreen() {
+    system("cls");
+}
+
+int main() {
+    char grid[HEIGHT][WIDTH];
+    int x = WIDTH / 2;
+    int y = HEIGHT / 2;
+    char input;
+
+    // Initialize grid
+    for (int i = 0; i < HEIGHT; i++) {
+        for (int j = 0; j < WIDTH; j++) {
+            grid[i][j] = ' ';
+        }
+    }
+
+    while (1) {
+        clearScreen();
+
+        // Draw cursor trail
+        grid[y][x] = '#';
+
+        // Print grid
+        for (int i = 0; i < HEIGHT; i++) {
+            for (int j = 0; j < WIDTH; j++) {
+                printf("%c", grid[i][j]);
+            }
+            printf("\n");
+        }
+
+        printf("\nWASD to draw | C to clear | Q to quit\n");
+
+        input = getch();
+
+        if (input == 'q') break;
+
+        if (input == 'w' && y > 0) y--;
+        if (input == 's' && y < HEIGHT - 1) y++;
+        if (input == 'a' && x > 0) x--;
+        if (input == 'd' && x < WIDTH - 1) x++;
+
+        if (input == 'c') {
+            for (int i = 0; i < HEIGHT; i++) {
+                for (int j = 0; j < WIDTH; j++) {
+                    grid[i][j] = ' ';
+                }
+            }
+        }
+    }
+
+    return 0;
+}
