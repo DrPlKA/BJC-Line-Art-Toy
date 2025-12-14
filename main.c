@@ -37,7 +37,7 @@ int main() {
 
     while (1) {
         clearScreen();
-        grid[y][x] = '#';
+        grid[y][x] = '4';
 
         for (int i = 0; i < HEIGHT; i++) {
             for (int j = 0; j < WIDTH; j++)
