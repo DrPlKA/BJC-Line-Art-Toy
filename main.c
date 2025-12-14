@@ -3,8 +3,8 @@
 #include <unistd.h>
 #include <termios.h>
 
-#define WIDTH 40
-#define HEIGHT 20
+#define WIDTH 100
+#define HEIGHT 100
 
 char getch() {
     struct termios oldt, newt;
